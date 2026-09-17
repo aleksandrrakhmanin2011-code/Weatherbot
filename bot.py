@@ -11,7 +11,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN")
 if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN не установлен в переменных окружения!")
 
-# ⚠️ ЗАМЕНИ НА СВОЙ РЕАЛЬНЫЙ URL С RENDER
+# ⚠️ ЕСЛИ АДРЕС ДРУГОЙ — ЗАМЕНИ ЗДЕСЬ
 WEBHOOK_BASE_URL = "https://weatherbot.onrender.com"
 
 logging.basicConfig(level=logging.INFO)
@@ -115,9 +115,12 @@ async def on_shutdown(app: web.Application):
 
 def main():
     app = web.Application()
+
+    # Регистрируем обработчик вебхука
     SimpleRequestHandler(dispatcher=dp, bot=bot).register(app, path="/webhook")
     setup_application(app, dp, bot=bot)
 
+    # Health-check для Render
     app.router.add_get("/", lambda r: web.Response(text="Weather bot is alive"))
 
     port = int(os.environ.get("PORT", 10000))
