@@ -12,7 +12,7 @@ if not BOT_TOKEN:
     raise ValueError("BOT_TOKEN не установлен в переменных окружения!")
 
 # ⚠️ ЕСЛИ АДРЕС ДРУГОЙ — ЗАМЕНИ ЗДЕСЬ
-WEBHOOK_BASE_URL = "https://weatherbot.onrender.com"
+WEBHOOK_BASE_URL = "https://weatherbot-khpr.onrender.com"
 
 logging.basicConfig(level=logging.INFO)
 bot = Bot(token=BOT_TOKEN)
