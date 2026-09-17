@@ -1,0 +1,3 @@
+aiogram>=3.20,<4
+aiohttp>=3.9,<4
+matplotlib>=3.8,<4
