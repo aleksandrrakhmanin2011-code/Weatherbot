@@ -1,0 +1,5 @@
+aiogram>=3.20,<4
+aiohttp>=3.9,<4
+matplotlib>=3.8,<4
+numpy>=1.26,<3
+Pillow>=10,<12
